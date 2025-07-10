@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Customization</title>
+    <style>
+        body {
+            background : url(https://cdn.wallpapersafari.com/78/25/JU9bGD.jpg);
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #333;
+        }
+
+        header {
+            background-color: #0288d1;
+            background-color: rgba(145, 234, 244, 0.7);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .back-button {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .back-button:hover {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgba(117, 235, 220, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-family: Algerian;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            font-family: Algerian;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        select, input[type="number"], input[type="text"], input[type="date"], input[type="submit"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: #0288d1;
+            background-color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            border: none;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0277bd;
+        }
+
+        .custom-preview {
+            margin-top: 40px;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+        }
+
+        .custom-preview p {
+            margin: 0;
+            display: inline;
+            padding-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="back-button" onclick="goBack()"><strong>BACK</strong></button>
+        <h1>Customize Your Travel Plan</h1>
+    </header>
+    
+    <div class="container">
+        <h1>Plan Your Trip</h1>
+        <form id="customization-form">
+            <div>
+                <label for="destination">Choose Your Destination:</label>
+                <select id="destination" name="destination">
+                    <option value="">Select Destination</option>
+                    <option value="varanasi">Varanasi & Ayodhya, Uttar Pradesh</option>
+                    <option value="lakshadweep">Lakshadweep</option>
+                    <option value="daman">Daman & Diu</option>
+                    <option value="andaman">Andaman & Nicobar Islands</option>
+                    <option value="mumbai">Mumbai, Maharashtra</option>
+                    <option value="surat">Surat, Gujarat</option>
+                    <option value="jaipur">Jaipur, Rajasthan</option>
+                    <option value="manali-leh">Manali-Leh</option>
+                    <option value="sikkim">Sikkim</option>
+                    <option value="kolkata">Kolkata, West Bengal</option>
+                    <option value="other">Others</option>
+                </select>
+            </div>
+            <div>
+                <label for="budget">Choose Your Budget:</label>
+                <input type="text" id="budget" name="budget" placeholder="Enter your budget in Rupees" value="">
+            </div>
+            <div>
+                <label for="travelers">Number of Travelers:</label>
+                <input type="number" id="travelers" name="travelers" placeholder="Enter number of travelers" value="">
+            </div>
+            <div>
+                <label for="start-date">From Date:</label>
+                <input type="date" id="start-date" name="start-date" value="">
+            </div>
+            <div>
+                <label for="end-date">To Date:</label>
+                <input type="date" id="end-date" name="end-date" value="">
+            </div>
+            <div>
+                <label for="accommodation">Choose Your Accommodation Type:</label>
+                <select id="accommodation" name="accommodation">
+                    <option value="">Select Accommodation</option>
+                    <option value="hotel">Hotel</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="villa">Villa</option>
+                    <option value="camping">Camping</option>
+                </select>
+            </div>
+            <div>
+                <label for="transportation">Choose Your Transportation:</label>
+                <select id="transportation" name="transportation">
+                    <option value="">Select Transportation</option>
+                    <option value="flight">Flight</option>
+                    <option value="train">Train</option>
+                    <option value="car">Car</option>
+                    <option value="bus">Bus</option>
+                </select>
+            </div>
+            <input type="submit" value="Apply Customization">
+        </form>
+
+        <div class="custom-preview" id="preview">
+            <h2>Your Travel Plan:</h2>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('customization-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const destination = document.getElementById('destination').value;
+            const budget = document.getElementById('budget').value;
+            const travelers = document.getElementById('travelers').value;
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+            const accommodation = document.getElementById('accommodation').value;
+            const transportation = document.getElementById('transportation').value;
+
+            const preview = document.getElementById('preview');
+            preview.innerHTML = `
+                <p><strong>Destination:</strong> ${destination.charAt(0).toUpperCase() + destination.slice(1).replace('-', ' ')}</p>
+                <p><strong>Budget:</strong> ₹${budget}</p>
+                <p><strong>Travelers:</strong> ${travelers}</p>
+                <p><strong>From:</strong> ${startDate}</p>
+                <p><strong>To:</strong> ${endDate}</p>
+                <p><strong>Accommodation:</strong> ${accommodation.charAt(0).toUpperCase() + accommodation.slice(1)}</p>
+                <p><strong>Transportation:</strong> ${transportation.charAt(0).toUpperCase() + transportation.slice(1)}</p>
+            `;
+
+            setTimeout(() => {
+                alert("Thank you for customizing your travel plan. Our team will review your preferences and contact you within a few days to finalize the details.");
+            }, 500);
+        });
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login or Signup</title>
+    <style>
+        body {
+            background-image: url('https://static.vecteezy.com/system/resources/previews/029/559/875/non_2x/indian-holiday-background-free-photo.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative; /* Added to position the back button absolutely */
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .form-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-container label span {
+            color: red; /* Color of the asterisk */
+            margin-left: 5px;
+        }
+
+        .form-container input {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .form-container button:hover {
+            background-color: #218838;
+        }
+
+        .form-container .toggle-btn {
+            background-color: #007bff;
+        }
+
+        .form-container .toggle-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .form-container .link {
+            margin-top: 20px;
+            display: block;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .form-container .link:hover {
+            text-decoration: underline;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 10px 20px;
+            background-color: #ffc107;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background-color: #e0a800;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-btn" onclick="window.history.back()">Back</button>
+    <div class="form-container">
+        <h1 id="formTitle">Login</h1>
+        <form id="authForm">
+            <label for="username">Username<span>*</span></label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+            <label for="password">Password<span>*</span></label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit">Login</button>
+
+            <button type="button" class="toggle-btn" onclick="toggleForm()">Switch to Signup</button>
+        </form>
+        <a href="#" class="link" onclick="forgotPassword()">Forgot Password?</a>
+    </div>
+
+    <script>
+        function toggleForm() {
+            const formTitle = document.getElementById('formTitle');
+            const authForm = document.getElementById('authForm');
+
+            if (formTitle.textContent === 'Login') {
+                formTitle.textContent = 'Signup';
+                authForm.innerHTML = `
+                    <label for="username">Username<span>*</span></label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                    
+                    <label for="email">Email<span>*</span></label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                    <label for="phone">Phone Number<span>*</span></label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    
+                    <label for="password">Password<span>*</span></label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    
+                    <label for="confirmPassword">Confirm Password<span>*</span></label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+
+                    <button type="submit">Signup</button>
+                    
+                    <button type="button" class="toggle-btn" onclick="toggleForm()">Switch to Login</button>
+                `;
+            } else {
+                formTitle.textContent = 'Login';
+                authForm.innerHTML = `
+                    <label for="username">Username<span>*</span></label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+                    <label for="password">Password<span>*</span></label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                    <button type="submit">Login</button>
+                    
+                    <button type="button" class="toggle-btn" onclick="toggleForm()">Switch to Signup</button>
+                `;
+            }
+        }
+
+        function forgotPassword() {
+            const email = prompt("Please enter your email address to reset your password:");
+            if (email) {
+                console.log("Password reset link sent to:", email);
+                alert("If this email is registered, a password reset link has been sent.");
+            }
+        }
+    </script>
+</body>
+</html>

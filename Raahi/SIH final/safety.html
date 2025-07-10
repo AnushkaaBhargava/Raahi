@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Safety Page</title>
+    <style>
+        body {
+            background-image: url('https://i.postimg.cc/hj373dxT/pouch-map-toy-airplane-blue-background-with-space-writing-text.jpg');
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .back-button, .alert-button, .emergency-call-button {
+            position: absolute;
+            top: 10px;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+        }
+
+        .back-button {
+            left: 20px;
+            background-color: black;
+        }
+
+        .emergency-call-button {
+            right: 160px;
+            background-color: rgb(255, 0, 0);
+        }
+
+        .alert-button {
+            right: 20px;
+            background-color: rgb(255, 0, 0);
+        }
+
+        .back-button:hover, .emergency-call-button:hover, .alert-button:hover {
+            background-color: #e60000;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .section-title {
+            color: #333;
+            margin-top: 30px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .emergency-contacts, .police-stations, .safety-tips, .tracking-info, .app-info {
+            margin: 20px 0;
+        }
+
+        .contact-item, .safety-tip, .app-detail {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item h3, .safety-tip h3, .app-detail h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        .contact-item p, .safety-tip p, .app-detail p {
+            margin: 5px 0;
+        }
+
+        .contact-item a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        .tracking-info, .app-info {
+            margin-top: 20px;
+        }
+
+        .tracking-info button {
+            display: block;
+            width: calc(100% - 20px); /* Full width minus padding */
+            margin: 10px auto; /* Center the button */
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+            border: none;
+        }
+
+        .tracking-info button:first-of-type {
+            background-color: #007bff; /* Blue color for Allow Location Tracking */
+        }
+
+        .tracking-info button:nth-of-type(2) {
+            background-color: #28a745; /* Green color for Share Location on WhatsApp */
+        }
+
+        .tracking-info button:last-of-type {
+            background-color: #ffc107; /* Yellow color for Share Location via SMS */
+        }
+
+        .tracking-info button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Travel Safety Information</h1>
+        <button class="back-button" onclick="goBack()">Back</button>
+        <button class="emergency-call-button" onclick="contactEmergency()">Emergency Call</button>
+        <button class="alert-button" onclick="triggerAlert()">Safety Alert</button>
+    </header>
+    
+    <div class="container">
+        <p>Your safety is our top priority. Below you will find important emergency contacts, nearby police stations, and safety tips to help ensure you have a secure and enjoyable journey.</p>
+
+        <div class="tracking-info">
+            <h2 class="section-title">Location Tracking</h2>
+            <p>To ensure your safety and provide better support during your trip, we will be tracking your location. This allows us to assist you more effectively in case of emergencies and provide you with relevant information. Your location data will be handled with the highest level of confidentiality and will only be used for safety and support purposes.</p>
+            <button onclick="requestLocation()">Allow Location Tracking</button>
+            <button onclick="shareLocation()">Share Location on WhatsApp</button>
+            <button onclick="shareLocationSMS()">Share Location via SMS</button>
+        </div>
+
+        <div class="app-info">
+            <h2 class="section-title">112 App Information</h2>
+            <div class="app-detail">
+                <h3>About the 112 App</h3>
+                <p>The 112 app is a critical safety tool designed to assist you in emergencies. By using this app, you can quickly contact emergency services such as police, medical, and fire services with just a few taps. The app provides real-time location tracking, ensuring that help can reach you quickly.</p>
+            </div>
+            <div class="app-detail">
+                <h3>Features of the 112 App</h3>
+                <ul>
+                    <li><strong>Emergency Calls:</strong> Contact emergency services instantly with the press of a button.</li>
+                    <li><strong>Real-time Location Sharing:</strong> Share your location with emergency responders for faster assistance.</li>
+                    <li><strong>Emergency Alerts:</strong> Send alerts to family and friends with your current location and situation.</li>
+                    <li><strong>Useful Information:</strong> Access emergency contacts, safety tips, and more within the app.</li>
+                </ul>
+            </div>
+            <div class="app-detail">
+                <h3>Download the 112 App</h3>
+                <p>The 112 app is available for download on both Android and iOS. Click the links below to download the app and ensure you're prepared in case of an emergency:</p>
+                <p>
+                    <a href="https://play.google.com/store/apps/details?id=com.example.112app" target="_blank">Download for Android</a><br>
+                    <a href="https://apps.apple.com/us/app/112-app/id1234567890" target="_blank">Download for iOS</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="emergency-contacts">
+            <h2 class="section-title">Emergency Contacts</h2>
+            <div class="contact-item">
+                <h3>Ambulance</h3>
+                <p>Phone: <a href="tel:+911">108</a></p>
+            </div>
+            <div class="contact-item">
+                <h3>Fire Department</h3>
+                <p>Phone: <a href="tel:+912">101</a></p>
+            </div>
+            <div class="contact-item">
+                <h3>Tourist Help Line</h3>
+                <p>Phone: <a href="tel:+913">1363</a></p>
+            </div>
+        </div>
+
+        <div class="police-stations">
+            <h2 class="section-title">Police Stations for your Assistance</h2>
+            <div class="contact-item">
+                <h3>North District Police Station</h3>
+                <p>Address: Baba Kharak Singh Marg, CP, New Delhi, 110001</p>
+                <p>Phone: <a href="tel:+914">+91-11-23416161</a></p>
+            </div>
+            <div class="contact-item">
+                <h3>West District Police Station</h3>
+                <p>Address: Ajmeri Gate, Jaipur, Rajasthan, 302002</p>
+                <p>Phone: <a href="tel:+915">+91-141-2567290</a></p>
+            </div>
+            <div class="contact-item">
+                <h3>Eastside Police Station</h3>
+                <p>Address: Panbazar, Guwahati, Assam, 781001</p>
+                <p>Phone: <a href="tel:+916">+91-361-2540138</a></p>
+            </div>
+            <div class="contact-item">
+                <h3>Central Police Station</h3>
+                <p>Address: Nathalal Parekh Marg, Colaba, Mumbai, Maharashtra, 400005</p>
+                <p>Phone: <a href="tel:+916">+91-22-22823456</a></p>
+            </div>
+            <div class="contact-item">
+                <h3>South District Police Station</h3>
+                <p>Address: Mahathma Gandhi Road, Pulimoodu, Thiruvananthapuram, Kerala, 695001</p>
+                <p>Phone: <a href="tel:+916">+91-471-2331843</a></p>
+            </div>
+        </div>
+
+        <div class="safety-tips">
+            <h2 class="section-title">Safety Tips</h2>
+            <div class="safety-tip">
+                <p>Research your destination's local laws and customs.</p>
+            </div>
+            <div class="safety-tip">
+                <p>Keep copies of important documents, such as your passport, in a safe place.</p>
+            </div>
+            <div class="safety-tip">
+                <p>Avoid displaying expensive items in public.</p>
+            </div>
+            <div class="safety-tip">
+                <p>Stay aware of your surroundings, especially in crowded areas.</p>
+            </div>
+            <div class="safety-tip">
+                <p>Use reputable transportation services.</p>
+            </div>
+            <div class="safety-tip">
+                <p>Purchase travel insurance before your trip.</p>
+            </div>
+            <div class="safety-tip">
+                <p>Follow health guidelines and stay updated on travel advisories.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Travel Safe. All Rights Reserved.
+    </footer>
+
+    <script>
+        function triggerAlert() {
+            alert("Safety Alert! Please take necessary precautions and contact emergency services if needed. Contact emergency number 112.");
+        }
+
+        function contactEmergency() {
+            window.location.href = "tel:+91-4567890784"; // Replace with your preferred emergency number
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+
+        function requestLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        alert("Location tracking enabled. Your current location is: Latitude " + position.coords.latitude + ", Longitude " + position.coords.longitude);
+                    },
+                    function() {
+                        alert("Location tracking is not enabled. For your safety, we recommend allowing location access to assist you better.");
+                    }
+                );
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function shareLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+                    var message = `Emergency! My current location is: https://www.google.com/maps?q=${latitude},${longitude}`;
+                    var encodedMessage = encodeURIComponent(message);
+                    var whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
+                    window.open(whatsappUrl, '_blank');
+                }, function() {
+                    alert('Unable to retrieve your location.');
+                });
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        }
+
+        function shareLocationSMS() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+                    var message = `Emergency! My current location is: https://www.google.com/maps?q=${latitude},${longitude}`;
+                    var encodedMessage = encodeURIComponent(message);
+                    var smsUrl = `sms:?body=${encodedMessage}`;
+                    window.location.href = smsUrl;
+                }, function() {
+                    alert('Unable to retrieve your location.');
+                });
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        }
+    </script>
+</body>
+</html>

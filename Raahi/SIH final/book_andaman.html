@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Details Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://wallpapers.com/images/hd/travel-wallpaper-group-cf4dc850xhw9rto5.jpg');
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2.5em; /* Adjusted for better responsiveness */
+            font-family: Algerian;
+            margin-bottom: 20px;
+            color: #9b00b3;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group label::after {
+            content: " *";
+            color: red;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .back-button {
+            background-color: #6c757d;
+        }
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+        .upi-options {
+            display: none;
+            margin-top: 10px;
+        }
+        .upi-options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="window.history.back()" class="button back-button">Back</button>
+        <h1>Fill Your Travel Details</h1>
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date" name="start-date" required>
+            </div>
+            <div class="form-group">
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date" name="end-date" required>
+            </div>
+            <div class="form-group">
+                <label for="rooms">Number of Rooms Required:</label>
+                <input type="number" id="rooms" name="rooms" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="travelers">Number of Travelers:</label>
+                <input type="number" id="num-people" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="emergency-contact-1">Emergency Contact Number 1:</label>
+                <input type="tel" id="emergency-contact-1" name="emergency-contact-1" required>
+            </div>
+            <div class="form-group">
+                <label for="emergency-contact-2">Emergency Contact Number 2:</label>
+                <input type="tel" id="emergency-contact-2" name="emergency-contact-2" required>
+            <div>
+                <body onload="calculateTotalPrice();"></body>
+                <p id="total-price"></p>
+            </div>
+            <div class="form-group">
+                <label for="payment-method">Payment Method:</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="" disabled selected>Select a payment method</option>
+                    <option value="credit-card">Credit Card</option>
+                    <option value="debit-card">Debit Card</option>
+                    <option value="paypal">UPI</option>
+                    <option value="bank-transfer">Bank Transfer</option>
+                </select>
+            </div>
+            <div class="form-group upi-options" id="upi-options">
+                <label for="upi-app">Select UPI App:</label>
+                <select id="upi-app" name="upi-app">
+                    <option value="" disabled selected>Select a UPI app</option>
+                    <option value="paytm">Paytm</option>
+                    <option value="google-pay">Google Pay</option>
+                    <option value="phone-pay">PhonePe</option>
+                    <option value="bhim">BHIM</option>
+                </select>
+            </div>
+            <div class="form-group" id="card-details" style="display: none;">
+                <label for="card-number">Card Number:</label>
+                <input type="tel" id="card-number" name="card-number" pattern="\d{13,16}" title="Enter a valid card number">
+            </div>
+            <div class="form-group" id="card-expiry" style="display: none;">
+                <label for="card-expiry">Card Expiry Date:</label>
+                <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/YY" pattern="\d{2}/\d{2}" title="Enter a valid expiry date">
+            </div>
+            <div class="form-group" id="card-cvv" style="display: none;">
+                <label for="card-cvv">Card CVV:</label>
+                <input type="tel" id="card-cvv" name="card-cvv" pattern="\d{3,4}" title="Enter a valid CVV">
+            </div>
+            <div class="form-group" style="text-align: center;">
+                <button type="submit" class="button">Proceed to Payment</button>
+            </div>
+        </form>
+    </div>
+    <script src="book_andaman.js"></script>
+    <script>
+        document.getElementById('payment-method').addEventListener('change', function() {
+            var cardDetails = document.getElementById('card-details');
+            var cardExpiry = document.getElementById('card-expiry');
+            var cardCVV = document.getElementById('card-cvv');
+            var upiOptions = document.getElementById('upi-options');
+
+            if (this.value === 'credit-card' || this.value === 'debit-card') {
+                cardDetails.style.display = 'block';
+                cardExpiry.style.display = 'block';
+                cardCVV.style.display = 'block';
+                upiOptions.style.display = 'none';
+            } else if (this.value === 'paypal') {
+                cardDetails.style.display = 'none';
+                cardExpiry.style.display = 'none';
+                cardCVV.style.display = 'none';
+                upiOptions.style.display = 'block';
+            } else {
+                cardDetails.style.display = 'none';
+                cardExpiry.style.display = 'none';
+                cardCVV.style.display = 'none';
+                upiOptions.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

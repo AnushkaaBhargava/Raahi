@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Travel Website</title>
+    <style>
+        /* General Styles */
+        body {
+            background: url(https://wext.in/wp-content/uploads/2020/05/impact-of-covid19-on-travel-industry-768x540.png);
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #2a2175;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5em;
+            font-family: Algerian;
+        }
+
+        /* Sections */
+        section {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0; /* Adds space between paragraphs */
+            transform: translateX(10px) translateY(10px);
+        }
+
+        section h2 {
+            color: #992323;
+            font-family: Algerian;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        section p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+        section h3 {
+            font-family: Algerian;
+        }
+
+        /* Contact Form */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #ba3119;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4d92c6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+    </header>
+
+    <button onclick="window.history.back()" style="padding: 10px 20px; background-color: #2a2175; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 1em; margin: 20px;">Back</button>
+
+    <section id="about-us">
+        <h2>About Us</h2>
+        <p>At RAAHI, our mission is to provide unforgettable travel experiences by offering personalized and unique travel packages. We believe in exploring the world in a way that is responsible, sustainable, and enriching.</p>
+        <p>We are a team of passionate travelers who have turned our love for exploring into a business. With years of experience in the travel industry, we know what it takes to create trips that are both enjoyable and hassle-free.</p>
+        <p>We offer a wide range of services including custom travel itineraries, group tours, adventure travel, luxury getaways, and more. Whether you're looking for a weekend escape or a month-long journey, we have something for everyone.</p>
+    </section>
+
+    <section id="contact-us">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need further information, feel free to contact us. We're here to help you with all your travel needs.</p>
+        
+        <h3>Contact Information</h3>
+        <p><strong>Email:</strong> info@travelwithraahi.com</p>
+        <p><strong>Phone:</strong> 01612349086</p>
+        <p><strong>Address:</strong> Plot-880,Knowledge Park-2,Noida Extension,Uttar Pradesh</p>
+
+        <h3>Contact Form</h3>
+        <form action="/submit_form" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Raahi. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

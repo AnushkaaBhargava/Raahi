@@ -1,0 +1,166 @@
+⁠{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+.logo-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+}
+h1 {
+    font-family: Algerian;
+      font-size: 60px;
+      margin-top: 0;
+      margin-bottom: 15px;
+      text-align: center;
+}
+
+.logo-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+
+.logo-left img, .logo-right img {
+    width: 75px; /* Adjust the logo size as needed */
+    height: 75px;
+}
+article h3{
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0; /* Adds space between paragraphs */
+    transform: translateX(10px) translateY(10px);
+}
+.home p{
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0; /* Adds space between paragraphs */
+    transform: translateX(10px) translateY(10px);
+}
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-image: url(https://thumbs.dreamstime.com/b/india-background-colorful-indian-travel-landscape-hindu-festival-colours-colorful-gulal-indian-festival-happy-holi-309112452.jpg );
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  
+  /* Header Style */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  /* Navigation Bar Style */
+  nav {
+    background-color: hsl(69, 23%, 94%);
+    padding: 10px 20px;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  nav li {
+    margin-right: 10px;
+  }
+  
+  nav a {
+    color: hsla(0, 100%, 0%, 0.722);
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    color: hsla(0, 89%, 4%, 0.039);
+  }
+  
+  /* Article and Heading Styles */
+  article p {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0; /* Adds space between paragraphs */
+    transform: translateX(10px) translateY(10px); /* Slight shift right and down */
+  }
+  
+  h2, h3 {
+    color: #333;
+    transform: translateX(10px) translateY(10px); /* Slight shift right and down */
+    margin: 20px 0; /* Adds space above and below headings */
+  }
+  
+  h2 {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  /* .home Section */
+  .home {
+    text-align: center;
+  }
+  
+  .home h1 {
+    font-family: Algerian;
+    font-size: 60px;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  
+  .home img {
+    width: 400px; 
+    height: 250px; 
+    object-fit: cover;
+    margin: 20px auto; /* Adds space above and below image */
+  }
+  
+  /* Footer Style */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    clear: both;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  img {
+    width: 400px; 
+  height: 250px; 
+  object-fit: cover;
+  }
+  .logo-left
+  {
+    border-radius: 50%;
+  }
+figure {
+    display: flex;
+    align-items: center;
+}
+
+figure img {
+    margin-right: 10px;
+}
+
+figcaption {
+    background-color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    font-weight:bold;
+    padding:20px;
+}

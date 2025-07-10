@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Details</title>
+    <style>
+        body {
+            background-image: url('https://cdn.prod.website-files.com/646c7acd0fa6479e8c2d9e1e/646ce8a07c1d6078ab5541c4_xMoney-benefits-api-bg.webp');
+            font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+        }
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgba(255,255,255,0.8);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #0056b3;
+        }
+        .upi-section,
+        .bank-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #007bff;
+        }
+        .upi-section img,
+        .bank-section img {
+            width: 240px;
+            height: 240px;
+            margin-bottom: 20px;
+        }
+        .details {
+            font-size: 16px;
+        }
+        .details p {
+            margin: 5px 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment Details</h1>
+
+        <div class="upi-section">
+            <!-- Placeholder QR code; replace with your actual QR code image URL -->
+            <img src="https://i.pinimg.com/originals/ae/fd/d4/aefdd47961a34d6c097fff56e6f3d58d.png" alt="UPI QR Code">
+            <div class="details">
+                <p><strong>UPI ID:</strong> travelwebsite@upi</p>
+                <p>Scan the QR code or use the UPI ID to make the payment.</p>
+            </div>
+        </div>
+
+        <div class="bank-section">
+            <h2>Bank Details</h2>
+            <div class="details">
+                <p><strong>Bank Name:</strong> Fake Bank Ltd.</p>
+                <p><strong>Account Number:</strong> 123456789012</p>
+                <p><strong>IFSC Code:</strong> FBLD0001234</p>
+                <p>Alternatively, you can make the payment using the bank details above.</p>
+            </div>
+        </div>
+
+        <a href="home.html" class="button">Confirm Payment</a>
+    </div>
+</body>
+</html>
